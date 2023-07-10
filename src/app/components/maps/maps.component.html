@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="logo">
+        <img src="././/src/assets/images/logo.png">
+    </div>
+    <div class="containerSearch">
+        <form (submit)="addList(newSearch)">
+            <div class="search">
+                <input #newSearch type="text" class="inputSearch" placeholder="Adress" >
+            </div>
+            <button class="buttonSearch">Search</button>
+        </form>
+    </div>
+</div>
+
+<app-search-list></app-search-list>

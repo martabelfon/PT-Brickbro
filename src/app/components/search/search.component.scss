@@ -1,0 +1,18 @@
+.container {
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+ 
+ .logo {
+     height: 100px;
+     width: 50%;
+     display: flex;
+     justify-content: center;
+ 
+     img {
+         height: 70px;
+     }
+ }
