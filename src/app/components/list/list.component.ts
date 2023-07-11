@@ -10,7 +10,9 @@ import { searchList } from '../models/list'
 export class ListComponent implements OnInit {
 
   @Input() list: searchList = {
-    adress:''
+    adress:'',
+    latitude: '',
+    longitude: '',
   };
   lists: searchList[];
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ListService } from '../../services/list.service'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { ListService } from '../../services/list.service'
 })
 export class SearchComponent implements OnInit {
 
-  constructor(public ListService: ListService) {}
+  constructor(public ListService: ListService, private router: Router) {}
 
   ngOnInit() {
 
@@ -20,8 +21,15 @@ export class SearchComponent implements OnInit {
     console.log('agregando...', newSearch.value);
     this.ListService.addList({
       adress: newSearch.value,
+      longitude: "",
+      latitude: "",
     });
     newSearch.value = '';
+    this.redirect();
+  }
+
+  redirect(){
+    this.router.navigate(['/map'])
   }
 
 }

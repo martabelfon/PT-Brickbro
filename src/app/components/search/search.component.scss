@@ -16,3 +16,42 @@
          height: 70px;
      }
  }
+
+ //input&button
+
+.containerSearch {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row
+}
+
+.search {
+    width: 100%;
+    display: flex;
+}
+
+.inputSearch{
+    padding: 10px;
+    width: 600px;
+    height: 30px;
+    background-color: #c8c8c8;
+    text-align: center;
+    border-radius: 5px;
+    border-color: #e3e3e3;
+    margin-right: 20px;
+
+  }
+
+  .button {
+    padding-right: 45px;
+    display: flex;
+}
+
+.buttonSearch {
+    background-color: #d3d3d3 ;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    border-color: #d3d3d3;
+    font-size: 100%;
+}

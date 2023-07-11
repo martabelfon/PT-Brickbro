@@ -1,6 +1,8 @@
 <div class="card">
     <div class="contentCard">
-        {{list.adress}}
+        adress: {{list.adress}},
+        latitude: {{list.latitude}},
+        longitude: {{list.longitude}}
         <div>
             <button (click)="actualSearch(list)">Buscar en mapa</button>
             <button (click)="deleteList(list)">Eliminar dirección</button> 
