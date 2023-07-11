@@ -12,12 +12,12 @@
         <form (submit)="loadMaps(inputSearch)">
             <div class="search">
                 <input #inputSearch type="text" class="inputSearch" placeholder="Adress" >
+                <button class="buttonSearch">Search</button>
             </div>
-            <button class="buttonSearch">Search</button>
         </form>
-    </div>
-    <div class="maps" #divMap>
-
+        <div class="containerMaps">
+            <div class="maps" #divMap></div>
+        </div>
     </div> 
 </div>
 

@@ -1,12 +1,13 @@
-<div class="card">
-    <div class="contentCard">
-        adress: {{list.adress}},
-        latitude: {{list.latitude}},
-        longitude: {{list.longitude}}
-        <div>
-            <button (click)="actualSearch(list)">Buscar en mapa</button>
-            <button (click)="deleteList(list)">Eliminar dirección</button> 
-            <!-- <button (click)="pruebaItem(list)">Prueba ultimo item</button> -->
-        </div>
+<div class="containerCard">
+    <div class="card">
+        {{list.adress}},
+        <!-- latitude: {{list.latitude}},
+        longitude: {{list.longitude}} -->
+    </div>
+    <div class="buttons">
+        <button class= "buttonSearch" (click)="actualSearch(list)">Buscar en mapa</button>
+        <button class= "buttonDelete" (click)="deleteList(list)">Eliminar dirección</button> 
+        <!-- <button (click)="pruebaItem(list)">Prueba ultimo item</button> --> 
     </div>
 </div>
+
