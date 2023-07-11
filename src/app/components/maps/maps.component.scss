@@ -43,8 +43,11 @@
   
   .maps {
     margin: 0 0 20px 20px;
-    width: 1350px;
-    height: 400px;
+    width: 900px;
+    height: 500px;
+    border: 2px solid;
+    border-color: black;
+    border-radius: 5px;
   }
 
   @media all and (min-width: 768px) and (max-width: 992px) { 
