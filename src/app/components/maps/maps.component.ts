@@ -15,18 +15,23 @@ export class MapsComponent  implements OnInit {
   @ViewChild('divMap') divMap!: ElementRef;
   @ViewChild('inputSearch') inputSearch!: ElementRef;
 
+  autocompleteInput: any;
   maps!: google.maps.Map;
   markers: google.maps.Marker[];
+  mainSearch: any;
 
   constructor(public ListService: ListService, private renderer: Renderer2) {
-    this.markers = []; //MAPS
+    this.markers = []; 
+
+    const list = this.ListService.getList();
+    const add: any = list.find((item) => item.mainSearch === true);
+    if(!add) return;
+    this.mainSearch = add;
   }
 
   ngOnInit() {
 
   }
-
-  //?MAP
 
   ngAfterViewInit(): void {
 
@@ -40,6 +45,11 @@ export class MapsComponent  implements OnInit {
 
       navigator.geolocation.getCurrentPosition(async (position) => {
 
+        if(this.mainSearch) {
+          this.loadMaps(this.mainSearch, true);
+          this.ListService.markAsShowed(this.mainSearch);
+          return;
+        }
         await this.loadMaps(position);
         this.loadAutocomplete();
 
@@ -48,21 +58,20 @@ export class MapsComponent  implements OnInit {
     } else {
       console.log("Navegador no compatible")
     }
-
   };
 
   private loadAutocomplete() {
 
-    const autocomplete = new google.maps.places.Autocomplete(this.renderer.selectRootElement(this.inputSearch.nativeElement), {
+    const autocomplete = new google.maps.places.Autocomplete(
+      this.renderer.selectRootElement(this.inputSearch.nativeElement), 
+    {
       fields: ["address_components", "geometry"],
       types: ["address"],
-    })
-
+    });
 
     google.maps.event.addListener(autocomplete, 'place_changed', () => {
 
       const place: any = autocomplete.getPlace();
-      console.log("el place completo es:", place)
 
       this.maps.setCenter(place.geometry.location);
       const marker = new google.maps.Marker({
@@ -70,45 +79,36 @@ export class MapsComponent  implements OnInit {
       });
 
       marker.setMap(this.maps);
-    })
+      const adress = place?.address_components.map((t: any) => { 
+        return t.long_name;
+      })
+      this.ListService.addList({
+        adress: adress.join(' '),
+        latitude: place.geometry.location.lat(),
+        longitude: place.geometry.location.lng(),
+        mainSearch: false
+      });
+    });
   }
 
-  loadMaps (position: any): any {
+  loadMaps (position: any, mainSearch?: boolean): any {                                                                                                                                                                                                                                                                                                                                                          
 
     const opciones = {
-      center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+      center: new google.maps.LatLng(
+        mainSearch ? position.latitude : position.coords.latitude, 
+        mainSearch ? position.longitude : position.coords.longitude
+      ),
       zoom: 17,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    this.maps = new google.maps.Map(this.renderer.selectRootElement(this.divMap.nativeElement), opciones)
+    this.maps = new google.maps.Map(this.renderer.selectRootElement(this.divMap.nativeElement), opciones);
 
     const markerPosition = new google.maps.Marker({
       position: this.maps.getCenter(),
-      title: "David",
-      
     });
-
-    this.ListService.addList({
-      adress: "",
-      latitude: position.coords.longitude,
-      longitude: position.coords.longitude,
-    });
-    // position.value = '';
 
     markerPosition.setMap(this.maps);
     this.markers.push(markerPosition);
-
-    
-  
-  };
-
-  // addList(newSearch: HTMLInputElement) {
-  //   console.log('agregando...', newSearch.value);
-  //   this.ListService.addList({
-  //     adress: newSearch.value,
-  //   });
-  //   newSearch.value = '';
-  // }
-
+  } 
 }

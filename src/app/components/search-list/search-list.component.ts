@@ -13,7 +13,7 @@ export class SearchListComponent {
   lists: searchList[];
   
   constructor ( public listService: ListService) { 
-    this.lists = []; //!SOLUCION ENCONTRADA POR INTERNET, EL lists ANTERIOR ME DA ERROR SIN ESTO!! 
+    this.lists = [];
   }
 
   ngOnInit() {

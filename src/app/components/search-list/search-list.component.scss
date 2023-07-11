@@ -1,14 +1,25 @@
-
-.containerSearch {
-    border: 5px;
-    border-color: black;
-}
-
 .title{
     margin: 25px;
 }
 
 h4 {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
     
 }
+
+.containerSearch {
+  width: 750px;
+  border: 2px solid;
+  border-color: #c2c2c2;
+  border-radius: 5px;
+}
+
+
+@media all and (min-width: 480px) and (max-width: 768px) { 
+    h4 { margin: 0 0 0 5px }
+    }
+    
+  @media all and (max-width: 480px) { 
+    h4 { margin: 0 0 0 25px }
+  }

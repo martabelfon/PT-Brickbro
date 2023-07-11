@@ -3,10 +3,10 @@
         <img src="././/src/assets/images/logo.png">
     </div>
     <div class="containerSearch">
-        <form (submit)="addList(newSearch)">
+        <form>
             <div class="search">
-                <input #newSearch type="text" class="inputSearch" placeholder="Adress" >
-                <button class="buttonSearch">Search</button>     
+                <input #newSearch type="text" class="inputSearch" placeholder="Adress" name="address">
+                <button class="buttonSearch" (click)="addList()">Search</button>     
             </div>
         </form>
     </div>

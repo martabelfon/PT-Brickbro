@@ -12,7 +12,7 @@ export class ListService {
     this.lists = [];
   }
 
-  getList() { //retornar elementos de la lista
+  getList() { 
     if(localStorage.getItem('lists') === null){
       return this.lists;
     } else {
@@ -49,6 +49,15 @@ export class ListService {
       if(list == this.lists[i]){
         console.log(this.lists[i]);
       }
+    }
+  }
+
+  markAsShowed(list: searchList){
+    for(let i = 0; i < this.lists.length; i++){
+      if(list.adress == this.lists[i].adress){
+        this.lists[i].mainSearch = false;
+        localStorage.setItem('lists', JSON.stringify(this.lists));
+      } 
     }
   }
 }

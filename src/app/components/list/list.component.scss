@@ -1,23 +1,32 @@
 .containerCard{
-    // background-color: #f1f1f1;
     margin-left: 30px;
-    width: 550px;
+    width: 700px;
     display:flex;
 }
 
 .card {
-    background-color: #c8c8c8;
-    width: 50%;
+    width: 600px;
+    height: 30px;
     margin: 5px;
     border-radius: 5px;
 }
 
+.text {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0 0 0 5px;
+}
+
+.buttons {
+    width: 400px;
+}
+
 .buttonSearch {
-background-color: #c8c8c8;
+    background-color: #c8c8c8;
     text-align: center;
     border-radius: 5px;
     border-color: #e3e3e3;
     margin: 5px;
+    height: 25px;
 }
 
 .buttonDelete {
@@ -26,5 +35,17 @@ background-color: #c8c8c8;
     border-radius: 5px;
     border-color: #e3e3e3;
     margin: 5px;
+    height: 25px;
+}
 
+@media all and (min-width: 480px) and (max-width: 768px) { 
+.containerCard { flex-direction: column; }
+.card { height: 25px; width: 535px;}
+}
+
+@media all and (max-width: 480px) { 
+.containerCard { flex-direction: column; }
+.card { height: 25px; width: 455px; margin: 0 0 0 30px;}
+.buttonSearch { width: 180px; height: 30px; margin: 10px 0 0 30px}
+.buttonDelete { width: 180px; height: 30px; }
 }
