@@ -10,7 +10,7 @@ import { searchList } from '../models/list'
 export class ListComponent implements OnInit {
 
   @Input() list: searchList = {
-    adress:'',
+    address:'',
     latitude: '',
     longitude: '',
   };
@@ -28,9 +28,5 @@ export class ListComponent implements OnInit {
     if(confirm('Estas seguro que quieres eliminarlo?')) {
       this.listService.deleteList(list);
     }
-  }
-
-  actualSearch (list: searchList) {
-      this.listService.actualSearch(list);
   }
 }

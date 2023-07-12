@@ -44,17 +44,9 @@ export class ListService {
     } 
   }
 
-  actualSearch (list: searchList) {
-     for(let i = 0; i < this.lists.length; i++){
-      if(list == this.lists[i]){
-        console.log(this.lists[i]);
-      }
-    }
-  }
-
   markAsShowed(list: searchList){
     for(let i = 0; i < this.lists.length; i++){
-      if(list.adress == this.lists[i].adress){
+      if(list.address == this.lists[i].address){
         this.lists[i].mainSearch = false;
         localStorage.setItem('lists', JSON.stringify(this.lists));
       } 

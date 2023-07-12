@@ -79,11 +79,11 @@ export class MapsComponent  implements OnInit {
       });
 
       marker.setMap(this.maps);
-      const adress = place?.address_components.map((t: any) => { 
+      const address = place?.address_components.map((t: any) => { 
         return t.long_name;
       })
       this.ListService.addList({
-        adress: adress.join(' '),
+        address: address.join(', '),
         latitude: place.geometry.location.lat(),
         longitude: place.geometry.location.lng(),
         mainSearch: false

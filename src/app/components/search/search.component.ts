@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
   constructor(public ListService: ListService, private router: Router, private renderer: Renderer2) {}
 
   maps!: google.maps.Map;
-  searchedAdress: any;
+  searchedAddress: any;
 
   ngOnInit() {
 
@@ -26,15 +26,15 @@ export class SearchComponent implements OnInit {
     const autocomplete = new google.maps.places.Autocomplete(
       this.renderer.selectRootElement(this.inputSearch.nativeElement),
       {
-        fields: ['adress_components', 'geometry'],
-        types: ['adress'],
+        fields: ['address_components', 'geometry'],
+        types: ['address'],
       }
     );
     google.maps.event.addListener(autocomplete, 'place_changed', () => {
 
       const place: any = autocomplete.getPlace();
       
-      this.searchedAdress = place;
+      this.searchedAddress = place;
     });
   }
 
@@ -43,13 +43,13 @@ export class SearchComponent implements OnInit {
   }
 
   addList() {
-    const adress = this.searchedAdress?.adress_components.map((t: any) => { 
+    const address = this.searchedAddress?.address_components.map((t: any) => { 
       return t.long_name;
     });
     this.ListService.addList({
-      adress: adress.join(','),
-      longitude: this.searchedAdress?.geometry.location.lat(),
-      latitude: this.searchedAdress?.geometry.location.lng(),
+      address: address.join(', '),
+      longitude: this.searchedAddress?.geometry.location.lat(),
+      latitude: this.searchedAddress?.geometry.location.lng(),
       mainSearch: true
     });
     this.router.navigate(['/map'])

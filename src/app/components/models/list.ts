@@ -1,5 +1,5 @@
 export interface searchList{
-    adress: string;
+    address: string;
     latitude: string;
     longitude: string;
     mainSearch?: boolean;

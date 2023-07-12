@@ -51,19 +51,19 @@
   }
 
   @media all and (min-width: 768px) and (max-width: 992px) { 
-    .maps { width: 750px ; height: 550px; }
+    .maps { width: 900px ; height: 550px; }
     .inputSearch { width: 400px ; height: 50px;}
     .buttonSearch { width: 143px ; height: 52px; margin:0 0 0 5px; }
     }
 
   @media all and (min-width: 480px) and (max-width: 768px) { 
-    .maps { width: 550px ; height: 550px; }
+    .maps { width: 900px ; height: 550px; }
     .inputSearch { width: 400px ; height: 50px;}
     .buttonSearch { width: 143px ; height: 52px; margin:0 0 0 5px; }
     }
     
   @media all and (max-width: 480px) { 
-    .maps { width: 600px ; height: 490px; margin: 0 0 0 50px}
-    .inputSearch { width: 455px ; height: 40px;  margin: 10px 0 10px 125px;}
-    .buttonSearch { width: 400px ; height: 45px; margin: 0 0 25px 150px; }
+    .maps { width: 800px ; height: 490px; margin: 0 0 0 50px}
+    .inputSearch { width: 650px ; height: 40px;  margin: 50px 0 10px 125px;}
+    .buttonSearch { width: 590px ; height: 45px; margin: 0 0 25px 155px; }
   }

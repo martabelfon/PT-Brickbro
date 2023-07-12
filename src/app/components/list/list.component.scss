@@ -1,11 +1,11 @@
 .containerCard{
     margin-left: 30px;
-    width: 700px;
+    width: 860px;
     display:flex;
 }
 
 .card {
-    width: 600px;
+    width: 1600px;
     height: 55px;
     margin: 5px;
 }
@@ -19,15 +19,6 @@
     width: 400px;
 }
 
-.buttonSearch {
-    background-color: #c8c8c8;
-    text-align: center;
-    border-radius: 5px;
-    border-color: #e3e3e3;
-    margin: 15px 0 0 5px;
-    height: 25px;
-}
-
 .buttonDelete {
     background-color: #c8c8c8;
     text-align: center;
@@ -39,12 +30,11 @@
 
 @media all and (min-width: 480px) and (max-width: 768px) { 
 .containerCard { flex-direction: column; }
-.card { height: 25px; width: 535px;}
+.card { height: 25px; width: 800px;}
 }
 
 @media all and (max-width: 480px) { 
 .containerCard { flex-direction: column; }
-.card { height: 25px; width: 455px; margin: 0 0 0 30px;}
-.buttonSearch { width: 180px; height: 30px; margin: 10px 0 0 30px}
+.card { height: 25px; width: 650px; margin: 0 0 0 30px;}
 .buttonDelete { width: 180px; height: 30px; }
 }
